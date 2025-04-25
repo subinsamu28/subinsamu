@@ -9,7 +9,7 @@
   <meta property="og:title" content="Subin Samu | Portfolio">
   <meta property="og:description" content="Cyber Forensics graduate and MSc Computer Science student with experience in digital security, ethical hacking, and software development.">
   <meta property="og:image" content="https://yourdomain.com/assets/profile-thumbnail.jpg">
-  <meta property="og:url" content="https://subinsamu.com">
+  <meta property="og:url" content="https://yourdomain.com">
   <title>Subin Samu | Portfolio</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -263,7 +263,45 @@
       0 0 15px rgba(139, 92, 246, 0.3);
       background: rgba(255, 255, 255, 0.12);
     }
-    
+    /* Hide menu toggle on large screens */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #60a5fa;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  nav {
+    width: 100%;
+    flex-direction: column;
+    display: none;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+}
+
     
 
     .timeline {
@@ -339,11 +377,20 @@
     
   </style>
 </head>
+<script>
+  function toggleMenu() {
+    document.querySelector('nav').classList.toggle('show');
+  }
+</script>
+
 <body>
   <div id="progress-bar"></div>
   <div id="tsparticles"></div>
   <header id="main-header">
     <h2 class="logo" data-aos="fade-right">Subin Samu</h2>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </button>    
     <nav>
       <a href="#education" data-tooltip="My Education">Education</a>
       <a href="#skills" data-tooltip="Technical Skills">Skills</a>

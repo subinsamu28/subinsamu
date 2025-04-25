@@ -793,10 +793,13 @@
     <a href="mailto:subinsamu28@gmail.com">Get in touch</a>
   </footer>
   <script>
-    function toggleDrawer() {
-      document.getElementById("mobileNav").classList.toggle("show");
-    }
-  </script>
+  function toggleMenu(button) {
+    const nav = document.querySelector("header nav");
+    nav.classList.toggle("show");
+    button.classList.toggle("active");
+  }
+</script>
+
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>

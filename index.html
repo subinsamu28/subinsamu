@@ -263,45 +263,7 @@
       0 0 15px rgba(139, 92, 246, 0.3);
       background: rgba(255, 255, 255, 0.12);
     }
-    /* Hide menu toggle on large screens */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  color: #60a5fa;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
-
-  nav {
-    width: 100%;
-    flex-direction: column;
-    display: none;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  nav a {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-  }
-}
-
+    
     
 
     .timeline {
@@ -373,16 +335,70 @@
       border-radius: 0.5rem;
       color: #dbeafe;
     }
+    .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+  }
+
+  .menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #60a5fa;
+    border-radius: 2px;
+    transition: 0.3s ease;
+  }
+
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    nav {
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    nav.show {
+      display: flex;
+    }
+
+    nav a {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+  }
 
     
   </style>
 </head>
-<script>
-  function toggleMenu() {
-    document.querySelector('nav').classList.toggle('show');
-  }
-</script>
-
 <body>
   <div id="progress-bar"></div>
   <div id="tsparticles"></div>
@@ -390,7 +406,8 @@
     <h2 class="logo" data-aos="fade-right">Subin Samu</h2>
     <button class="menu-toggle" onclick="toggleMenu()">
       <i class="fa fa-bars"></i>
-    </button>    
+    </button>
+  
     <nav>
       <a href="#education" data-tooltip="My Education">Education</a>
       <a href="#skills" data-tooltip="Technical Skills">Skills</a>
@@ -774,6 +791,11 @@
     © 2025 Subin Samu — Built with Creativity.<br />
     <a href="mailto:subinsamu28@gmail.com">Get in touch</a>
   </footer>
+  <script>
+    function toggleDrawer() {
+      document.getElementById("mobileNav").classList.toggle("show");
+    }
+  </script>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -811,6 +833,7 @@
       lastScroll = currentScroll;
       
     });
+    
   </script>
 </body>
 </html>

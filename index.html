@@ -17,6 +17,9 @@
   <meta name="twitter:image" content="https://subinsamu.com/assets/logo-final.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.bundle.min.js"></script>
@@ -321,14 +324,187 @@
     font-weight: 500;
     }
 
+    .timeline-section {
+      padding-top: 2rem;
+      position: relative;
+    }
 
     .timeline {
       position: relative;
+      margin: 2rem 0;
       padding-left: 2rem;
-      border-left: 3px solid #60a5fa;
+      border-left: 2px solid #3b82f6;
     }
-    .timeline div {
-      margin-bottom: 1.5rem;
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -10px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      background: #3b82f6;
+      border: 2px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+    }
+
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e0e7ff;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .timeline-sub {
+      font-size: 0.95rem;
+      color: #a5b4fc;
+      margin: 2px 0 4px;
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    .badge {
+      background: #2563eb;
+      color: white;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+      animation: pulse-badge 1.2s infinite ease-in-out;
+    }
+
+    .skills-section {
+      padding-top: 2rem;
+      position: relative;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 1rem;
+    }
+
+.skill-block {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.skill-block:hover {
+  box-shadow: 0 0 25px rgba(93, 188, 252, 0.2);
+  transform: translateY(-4px);
+  border: 1px solid rgba(93, 188, 252, 0.3);
+}
+
+.skill-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: #93c5fd;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-block ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.skill-block ul li {
+  color: #e0e7ff;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+.skill-block[data-aos="fade-up"] ul li {
+  animation: fadeSlideUp 0.6s ease forwards;
+  animation-delay: calc(0.05s * var(--i));
+}
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-block ul li i {
+  color: #60a5fa;
+  min-width: 16px;
+}
+
+
+    .skill-block {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 1rem 1.2rem;
+      border-radius: 0.75rem;
+    }
+
+    .skill-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #a5b4fc;
+    }
+
+    .skill-block ul {
+      padding-left: 1.2rem;
+      list-style: none;
+    }
+
+    .skill-block ul li {
+      margin-bottom: 0.4rem;
+      color: #e0e7ff;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-block ul li i {
+      color: #60a5fa;
+      min-width: 16px;
+    }
+
+
+    @keyframes pulse-badge {
+      0% { transform: scale(1); background-color: #3b82f6; }
+      50% { transform: scale(1.05); background-color: #2563eb; }
+      100% { transform: scale(1); background-color: #3b82f6; }
+    }
+
+    .timeline-item.current .timeline-dot {
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.2);
     }
     .badge-bar {
     display: flex;
@@ -710,28 +886,92 @@
   <a href="https://www.instagram.com/subin_samu" class="btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
 </div>
 
+    <section id="education" class="timeline-section" data-aos="fade-up">
+      <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+      <div class="timeline">
+        <div class="timeline-item current">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="timeline-title"><i class="fas fa-user-graduate"></i> MSc Applied Computer Sciences <span class="badge">Current</span></h3>
+            <p class="timeline-sub">Deggendorf Institute of Technology</p>
+            <span class="timeline-date">Oct 2024 – Present</span>
+          </div>
+        </div>
 
+        <div class="timeline-item current">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Ethical Hacking <span class="badge">Current</span></h3>
+            <p class="timeline-sub">Avodha</p>
+            <span class="timeline-date">Jul 2023 – Present</span>
+          </div>
+        </div>
 
-  <section id="education" data-aos="fade-up">
-    <h2>Education</h2>
-    <ul>
-      <li>MSc Applied Computer Sciences - Deggendorf Institute of Technology (Oct 2024 – Present)</li>
-      <li>Ethical Hacking - Avodha (Jul 2023 – Present)</li>
-      <li>BSc Cyber Forensics - Viswabrahmana College (Sep 2020 – Jun 2023)</li>
-      <li>Higher Secondary - GHSS Kadumeenchira (2018 – 2020)</li>
-      <li>Secondary School - GHS Perunad (2017 – 2018)</li>
-    </ul>
-  </section>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="timeline-title">BSc Cyber Forensics</h3>
+            <p class="timeline-sub">Viswabharamana College</p>
+            <span class="timeline-date">Sep 2020 – Jun 2023</span>
+          </div>
+        </div>
 
-  <section id="skills" data-aos="fade-up">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>Languages: Python, C, C++, Java, HTML, CSS, SQL</li>
-      <li>Tools/Frameworks: Django, MS SQL Server, Digital Forensic Tools, BWAPP</li>
-      <li>Cyber Forensics, Malware Analysis, Network Forensics, Data Recovery</li>
-      <li>Incident Response, Vulnerability Assessment, Penetration Testing</li>
-    </ul>
-  </section>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Higher Secondary</h3>
+            <p class="timeline-sub">GHSS Kadumeenchira</p>
+            <span class="timeline-date">2018 – 2020</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="timeline-title">Secondary School</h3>
+            <p class="timeline-sub">GHS Perunad</p>
+            <span class="timeline-date">2017 – 2018</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills-section" data-aos="fade-up">
+      <h2 class="section-title"><i class="fas fa-tools"></i> Technical Skills</h2>
+      <div class="skills-grid">
+
+        <div class="skill-block" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+          <h3 class="skill-title">Languages</h3>
+          <div class="lang-badges">
+            <span class="badge blue">Python</span>
+            <span class="badge gray">C</span>
+            <span class="badge gray">C++</span>
+            <span class="badge gray">Java</span>
+            <span class="badge blue">HTML</span>
+            <span class="badge blue">CSS</span>
+            <span class="badge gray">SQL</span>
+            <span class="badge gray">Rust</span>
+            <span class="badge gray">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="skill-block" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+          <h3 class="skill-title">Frameworks & Tools</h3>
+          <ul>
+            <li style="--i:1"><i class="fas fa-wrench"></i> Django, MS SQL Server, Digital Forensics Tools, BWAPP</li>
+          </ul>
+        </div>
+
+        <div class="skill-block" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+          <h3 class="skill-title">Forensics & Security</h3>
+          <ul>
+            <li style="--i:2"><i class="fas fa-shield-alt"></i> Cyber Forensics, Malware Analysis, Network Forensics, Data Recovery</li>
+            <li style="--i:3"><i class="fas fa-bug"></i> Incident Response, Vulnerability Assessment, Penetration Testing</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
 
   <section id="experience" data-aos="fade-up">
     <h2>Experience</h2>
@@ -993,6 +1233,68 @@
       box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4);
       transform: translateY(-2px) scale(1.03);
     }
+
+    .edu-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .edu-card {
+      position: relative;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: #f1f5f9;
+    }
+
+    .edu-card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 12px 30px rgba(96, 165, 250, 0.3);
+    }
+
+    .edu-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #e0e7ff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .edu-title i {
+      color: #60a5fa;
+      font-size: 1.1rem;
+    }
+
+    .edu-sub {
+      font-size: 0.95rem;
+      color: #a5b4fc;
+      margin-top: 4px;
+    }
+
+    .edu-time {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    .badge.current {
+      background-color: #22c55e;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+
   </style>
 
   
@@ -1069,43 +1371,49 @@
 </script>
 
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    
-    AOS.init({ duration: 1000, once: true });
-    tsParticles.load("tsparticles", {
-      particles: {
-        number: { value: 40 },
-        size: { value: 3 },
-        color: { value: "#3b82f6" },
-        links: { enable: true, color: "#3b82f6" },
-        move: { enable: true, speed: 1 },
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  // Initialize AOS animations
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+
+  // Initialize tsParticles background
+  tsParticles.load("tsparticles", {
+    particles: {
+      number: { value: 40 },
+      size: { value: 3 },
+      color: { value: "#3b82f6" },
+      links: { enable: true, color: "#3b82f6" },
+      move: { enable: true, speed: 1 }
+    },
+    interactivity: {
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: true, mode: "push" }
       },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" },
-        },
-        modes: {
-          repulse: { distance: 100 },
-          push: { quantity: 4 }
-        }
-      },
-      background: { color: "transparent" }
-    });
-    let lastScroll = 0;
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll < lastScroll) {
-        header.style.top = '0';
-      } else {
-        header.style.top = '-100px';
+      modes: {
+        repulse: { distance: 100 },
+        push: { quantity: 4 }
       }
-      lastScroll = currentScroll;
-      
-    });
-    AOS.init();
-  </script>
+    },
+    background: { color: "transparent" }
+  });
+
+  // Smart header hide/show on scroll
+  let lastScroll = 0;
+  const header = document.getElementById('main-header');
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll < lastScroll) {
+      header.style.top = '0';
+    } else {
+      header.style.top = '-100px';
+    }
+    lastScroll = currentScroll;
+  });
+</script>
 </body>
 </html>

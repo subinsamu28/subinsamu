@@ -62,7 +62,6 @@ My portfolio showcases my projects, certifications, academic work, and experienc
 
 Email: subinsamu28@gmail.com  
 LinkedIn: https://www.linkedin.com/in/subin-samu/  
-Resume: https://www.subinsamu.com/Subin_Samu_Resume.pdf
 
 ---
 
